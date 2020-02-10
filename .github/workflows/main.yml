@@ -1,0 +1,35 @@
+name: CI
+
+name: Sync Fork
+
+on:
+  schedule:
+  - cron: '*/30 * * * *'
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    #- uses: actions/checkout@v2
+    #- name: Run a one-line script
+    #  run: echo Hello, world!
+    #- name: Run a multi-line script
+    #  run: |
+    #    echo Add other actions to build,
+    #    echo test, and deploy your project.
+    - name: Fork Sync
+      uses: TG908/fork-sync@v1.1.4
+      with:
+        # Owner of the forked repository
+        # owner: # optional
+        # Token for the github API
+        github_token: ${{secrets.PERSONAL_ACCESS_TOKEN}}
+        # Branch to track
+        # head: # optional, default is master
+        # Branch to keep updated
+        # base: # optional, default is master
+        # Merge method to use
+        # merge_method: # optional, default is merge
+        # The title of the pull request
+        # pr_title: # optional, default is Fork Sync
+        # The message in the pull request
+        # pr_message: # optional
